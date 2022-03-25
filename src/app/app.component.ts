@@ -7,6 +7,5 @@ import { environment } from './../environments/environment';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'bringoz-home-assingment';
   apiKey = environment.apiKey;
 }
