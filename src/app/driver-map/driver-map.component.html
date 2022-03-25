@@ -1,0 +1,11 @@
+<div>
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+    <agm-marker *ngFor="let driver of drivers | async"
+      [latitude]="driver.location.lat"
+      [longitude]="driver.location.lng"
+    ></agm-marker>
+  </agm-map>
+</div>
+
+
+<!--todo add [iconUrl]="" after u find nice svg to use as url to make custom driver icons-->

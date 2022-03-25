@@ -1,0 +1,8 @@
+div {
+  width: 90%;
+  margin: 10px auto 0px;
+}
+
+div agm-map {
+  height: 500px;
+}
