@@ -1,1 +1,8 @@
-<h1> {{ apiKey }}</h1>
+<h1>{{ title }}</h1>
+
+<h2> {{ lat }}</h2>
+<h2> {{ lng }}</h2>
+
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
