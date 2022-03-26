@@ -10,7 +10,7 @@ import { Driver } from '../models/Driver.model';
 export class DriverTableComponent implements OnInit{
 
   @Input() drivers!:Observable<Driver[]>
-  titles!:string[]
+  titles:string[] = []
 
   ngOnInit(): void {
     this.drivers.subscribe((drivers) => {
