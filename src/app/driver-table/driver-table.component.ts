@@ -22,11 +22,15 @@ export class DriverTableComponent implements OnChanges{
     this.titles = Object.keys(first)
   }
 
-  onDeleteDriver(id:number) {
-    this.driverService
+  onDeleteDriver(name:string, id:number) {
+    if (confirm(`Are you sure you want to delete driver "${name}" ?`)) {
+      this.driverService
       .deleteDriver(id)
       .subscribe((driver:Driver) => {
         this.deleteEvent.emit(driver)
       })
+    } else {
+      // Do nothing!
+    }
   }
 }
