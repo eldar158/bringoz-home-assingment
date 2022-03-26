@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, first, from } from 'rxjs';
 import { Driver } from '../models/Driver.model';
 
 @Component({
@@ -14,10 +14,8 @@ export class DriverMapComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-  lat = 33.96
-  lng = -118.27
-  zoom = 8
-
   @Input() drivers!:Observable<Driver[]>
+  @Input() lat!:number
+  @Input() lng!:number
+  @Input() zoom!:number
 }
