@@ -15,7 +15,7 @@ export class DriverTableComponent implements OnChanges{
 
   constructor(private driverService:DriverService) { }
 
-  @Output() postEvent = new EventEmitter<Driver>()
+  @Output() deleteEvent = new EventEmitter<Driver>()
 
   ngOnChanges(): void {
     const first = this.drivers[0]

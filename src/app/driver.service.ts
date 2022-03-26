@@ -13,7 +13,7 @@ import { catchError, Observable } from 'rxjs';
 export class DriverService {
   constructor(private http: HttpClient) {}
 
-  getDrivers(): Observable<Driver[]> {
+  getDrivers():Observable<Driver[]> {
     return this.http.get<Driver[]>(environment.BACKEND_URL + '/drivers')
   }
 
@@ -21,12 +21,12 @@ export class DriverService {
     return this.http.post<Driver>(environment.BACKEND_URL + '/drivers', driver)
   }
 
-  putDriver(driver:Driver) {
+  putDriver(driver:Driver):Observable<Driver> {
     return this.http.post<Driver>(environment.BACKEND_URL + '/drivers', driver)
     //todo how to tell him which one? using name probably. look at json-server docs
   }
 
-  deleteDriver(id:number){
-    return this.http.delete<Driver[]>(environment.BACKEND_URL + '/drivers') //todo find how to choose id
+  deleteDriver(id:number):Observable<Driver> {
+    return this.http.delete<Driver>(environment.BACKEND_URL + '/drivers/' + id)
   }
 }
