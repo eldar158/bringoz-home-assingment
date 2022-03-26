@@ -1,10 +1,11 @@
-import { location } from './location.model';
-import { task } from './task.model';
+import { Location } from './Location.model';
+import { Task } from './Task.model'
 
 export interface Driver {
+  id: number;
   name: string,
   phone: string,
   email: string,
-  location: location,
-  tasks: task[],
+  location: Location,
+  tasks: Task[],
 }

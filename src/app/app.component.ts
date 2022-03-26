@@ -11,11 +11,18 @@ import { DriverService } from './driver.service'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  drivers!: Observable<Driver[]>
+  drivers:Driver[] = []
 
   constructor(private driverService: DriverService) {}
 
   ngOnInit(): void {
-    this.drivers = this.driverService.getDrivers()
+    this.driverService.getDrivers()
+      .subscribe((drivers:Driver[]) => {
+        this.drivers = drivers
+      })
+  }
+
+  onPostEvent($event:Driver) {
+    this.drivers.push($event)
   }
 }

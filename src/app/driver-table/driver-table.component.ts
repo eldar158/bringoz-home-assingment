@@ -1,21 +1,32 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+
 import { Driver } from '../models/Driver.model';
+import { DriverService } from '../driver.service';
 
 @Component({
   selector: 'app-driver-table',
   templateUrl: './driver-table.component.html',
   styleUrls: ['./driver-table.component.css']
 })
-export class DriverTableComponent implements OnInit{
+export class DriverTableComponent implements OnChanges{
 
-  @Input() drivers!:Observable<Driver[]>
+  @Input() drivers:Driver[] = []
   titles:string[] = []
 
-  ngOnInit(): void {
-    this.drivers.subscribe((drivers) => {
-      const first = drivers[0]
-      this.titles = Object.keys(first)
-    })
+  constructor(private driverService:DriverService) { }
+
+  @Output() postEvent = new EventEmitter<Driver>()
+
+  ngOnChanges(): void {
+    const first = this.drivers[0]
+    this.titles = Object.keys(first)
+  }
+
+  onDeleteDriver(id:number) {
+    this.driverService
+      .deleteDriver(id)
+      .subscribe((driver:Driver) => {
+        this.deleteEvent.emit(driver)
+      })
   }
 }

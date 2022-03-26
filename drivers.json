@@ -40,7 +40,7 @@
         "lat": 33.939372,
         "lng": -118.344587
       },
-          "tasks": [
+      "tasks": [
         {
           "id": "maria-task-1",
           "location": {
@@ -65,7 +65,7 @@
         "lat": 33.96842,
         "lng": -118.222225
       },
-          "tasks": [
+      "tasks": [
         {
           "id": "david-task-1",
           "location": {
@@ -83,12 +83,12 @@
         "lat": 33.900057,
         "lng": -117.935207
       },
-          "tasks": [
+      "tasks": [
         {
           "id": "john-task-1",
           "location": {
             "lat": 33.838483,
-            "lng":  -117.95718
+            "lng": -117.95718
           }
         },
         {
@@ -115,7 +115,7 @@
         "lat": 34.186814,
         "lng": -118.279903
       },
-          "tasks": [
+      "tasks": [
         {
           "id": "daniel-task-1",
           "location": {

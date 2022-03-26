@@ -1,4 +1,4 @@
-export interface location {
+export interface Location {
   lat: number,
   lng: number,
 }

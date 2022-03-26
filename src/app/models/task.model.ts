@@ -1,6 +1,6 @@
-import { location } from './location.model'
+import { Location } from './Location.model'
 
-export interface task {
-  id: number,
-  location: location,
+export interface Task {
+  id: String,
+  location: Location,
 }

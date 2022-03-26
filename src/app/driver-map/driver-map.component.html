@@ -1,6 +1,6 @@
 <div>
   <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-    <agm-marker *ngFor="let driver of drivers | async"
+    <agm-marker *ngFor="let driver of drivers"
       [latitude]="driver.location.lat"
       [longitude]="driver.location.lng"
     ></agm-marker>

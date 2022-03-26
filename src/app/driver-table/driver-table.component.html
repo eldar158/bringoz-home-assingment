@@ -1,4 +1,4 @@
-<table *ngIf="titles.length != 0">
+<table>
   <tbody>
     <tr>
       <th *ngFor="let title of titles">
@@ -6,7 +6,7 @@
       </th>
       <th>actions</th>
     </tr>
-    <tr *ngFor="let driver of drivers | async">
+    <tr *ngFor="let driver of drivers">
       <td>{{driver.name}}</td>
       <td>{{driver.email}}</td>
       <td>{{driver.phone}}</td>

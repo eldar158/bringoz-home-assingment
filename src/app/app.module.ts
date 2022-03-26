@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
 import { DriverTableComponent } from './driver-table/driver-table.component';
 import { DriverMapComponent } from './driver-map/driver-map.component';
+import { AddDriverButtonComponent } from './post-driver-button/post-driver-button.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { DriverMapComponent } from './driver-map/driver-map.component';
   declarations: [
     AppComponent,
     DriverTableComponent,
-    DriverMapComponent
+    DriverMapComponent,
+    AddDriverButtonComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Observable, first, from } from 'rxjs';
+import { Component, Input, OnChanges } from '@angular/core';
 import { Driver } from '../models/Driver.model';
 
 @Component({
@@ -7,20 +6,18 @@ import { Driver } from '../models/Driver.model';
   templateUrl: './driver-map.component.html',
   styleUrls: ['./driver-map.component.css']
 })
-export class DriverMapComponent implements OnInit {
+export class DriverMapComponent implements OnChanges {
 
   constructor() { }
 
-  @Input() drivers!:Observable<Driver[]>
+  @Input() drivers:Driver[] = []
   @Input() lat:number = 0
   @Input() lng:number = 0
   @Input() zoom = 9
 
-  ngOnInit(): void {
-    this.drivers.subscribe((drivers) => {
-      const first = drivers[0]
-      this.lat = first.location.lat
-      this.lng = first.location.lng
-    })
+  ngOnChanges(): void {
+    const first = this.drivers[0]
+    this.lat = first.location.lat
+    this.lng = first.location.lng
   }
 }
