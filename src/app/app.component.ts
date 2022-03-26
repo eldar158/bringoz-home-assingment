@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 import { Driver } from './models/Driver.model'
 import { Observable } from 'rxjs';
+
+import { DriverService } from './driver.service'
 
 @Component({
   selector: 'app-root',
@@ -10,17 +11,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  readonly ROOT_URL= 'http://localhost:3000'
-
   drivers!: Observable<Driver[]>
 
-  constructor(private http: HttpClient) {}
-
-  getDrivers() {
-    this.drivers = this.http.get<Driver[]>(this.ROOT_URL + '/drivers')
-  }
+  constructor(private driverService: DriverService) {}
 
   ngOnInit(): void {
-      this.getDrivers()
+    this.drivers = this.driverService.getDrivers()
   }
 }
