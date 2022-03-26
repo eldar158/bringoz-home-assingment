@@ -11,11 +11,16 @@ export class DriverMapComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
   @Input() drivers!:Observable<Driver[]>
   @Input() lat!:number
   @Input() lng!:number
-  @Input() zoom!:number
+  @Input() zoom = 9
+
+  ngOnInit(): void {
+    this.drivers.subscribe((drivers) => {
+      const first = drivers[0]
+      this.lat = first.location.lat
+      this.lng = first.location.lng
+    })
+  }
 }

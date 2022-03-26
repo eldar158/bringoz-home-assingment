@@ -6,5 +6,5 @@ export interface Driver {
   phone: string,
   email: string,
   location: location,
-  tasks: task,
+  tasks: task[],
 }

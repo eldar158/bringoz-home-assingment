@@ -1,18 +1,28 @@
 <table>
   <tbody>
     <tr>
-      <th>name</th>
-      <th>email</th>
-      <th>phone</th>
-      <th>latitude</th>
-      <th>longitude</th>
+      <th *ngFor="let title of titles">
+        {{ title }}
+      </th>
+      <th>actions</th>
     </tr>
     <tr *ngFor="let driver of drivers | async">
       <td>{{driver.name}}</td>
       <td>{{driver.email}}</td>
       <td>{{driver.phone}}</td>
-      <td>{{driver.location.lat}}</td>
-      <td>{{driver.location.lng}}</td>
+      <td>
+        <div>{{driver.location.lat}}</div>
+        <div>{{driver.location.lng}}</div>
+      </td>
+      <td>{{driver.tasks.length}}</td>
+      <td>
+        <button class="edit-button">
+          edit
+        </button>
+        <button class="delete-button">
+          delete
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
