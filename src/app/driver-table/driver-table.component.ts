@@ -15,7 +15,7 @@ export class DriverTableComponent implements OnChanges{
 
   constructor(private driverService:DriverService) { }
 
-  @Output() deleteEvent = new EventEmitter<Driver>()
+  @Output() deleteEvent = new EventEmitter<number>()
 
   ngOnChanges(): void {
     const first = this.drivers[0]
@@ -27,7 +27,7 @@ export class DriverTableComponent implements OnChanges{
       this.driverService
       .deleteDriver(id)
       .subscribe((driver:Driver) => {
-        this.deleteEvent.emit(driver)
+        this.deleteEvent.emit(id)
       })
     } else {
       // Do nothing!

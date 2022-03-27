@@ -22,15 +22,11 @@ export class AppComponent implements OnInit {
       })
   }
 
-  onPostEvent($event:Driver) {
-    this.drivers.push($event)
+  onPostEvent(newDriver:Driver) {
+    this.drivers.push(newDriver)
   }
 
-  onDeleteEvent($event:Driver) {
-  //   const deletedDriverId = $event
-  //   this.drivers = this.drivers.filter((driver) => {
-  //     driver.id != deletedDriverId
-  //   })
-  this.ngOnInit()
+  onDeleteEvent(deletedDriverId:number) {
+    this.drivers = this.drivers.filter(driver =>driver.id != deletedDriverId)
   }
 }

@@ -10,7 +10,6 @@ import { environment } from 'src/environments/environment';
 import { DriverTableComponent } from './driver-table/driver-table.component';
 import { DriverMapComponent } from './driver-map/driver-map.component';
 import { AddDriverButtonComponent } from './post-driver-button/post-driver-button.component';
-import { DeleteResponseInterceptor } from './driver-table/delete-response.interceptor'
 
 @NgModule({
   imports: [
@@ -21,7 +20,7 @@ import { DeleteResponseInterceptor } from './driver-table/delete-response.interc
       apiKey: environment.apiKey
     })
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: DeleteResponseInterceptor, multi: true}],
+  providers: [],
   declarations: [
     AppComponent,
     DriverTableComponent,
