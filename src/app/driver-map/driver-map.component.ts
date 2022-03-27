@@ -8,13 +8,20 @@ import { Driver } from '../models/Driver.model';
 })
 export class DriverMapComponent implements OnChanges {
 
-  constructor() { }
-
   @Input() drivers:Driver[] = []
   @Input() selectedDriverId:number = -1
   @Input() lat:number = 0
   @Input() lng:number = 0
   @Input() zoom = 9
+
+  // taskMarker = './assets/images/taskMarker.png'
+  taskMarker = {
+    url: './assets/images/taskMarker.png',
+    scaledSize: {
+      width: 18.5,
+      height: 30
+    }
+  }
 
   ngOnChanges(): void {
     const first = this.drivers[0]

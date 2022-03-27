@@ -4,8 +4,12 @@
       [latitude]="drivers[selectedDriverId].location.lat"
       [longitude]="drivers[selectedDriverId].location.lng"
     ></agm-marker>
+    <ng-container *ngIf="selectedDriverId != -1 && drivers[selectedDriverId].tasks.length != 0">
+      <agm-marker *ngFor="let task of drivers[selectedDriverId].tasks"
+      [latitude]="task.location.lat"
+      [longitude]="task.location.lng"
+      [iconUrl]="$any(taskMarker)"
+    ></agm-marker>
+    </ng-container>
   </agm-map>
 </div>
-
-
-<!--todo add [iconUrl]="" after u find nice svg to use as url to make custom driver icons-->
