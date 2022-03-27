@@ -1,9 +1,11 @@
-import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, ViewChild } from '@angular/core';
 
 import { Driver } from '../models/Driver.model';
 import { DriverService } from '../driver.service';
 
 import { MatDialog } from '@angular/material/dialog'
+import { MatTable } from '@angular/material/table';
+
 import { DriverDialogComponent } from '../driver-dialog/driver-dialog.component'
 
 @Component({
@@ -26,12 +28,18 @@ export class DriverTableComponent implements OnChanges{
   @Output() deleteEvent = new EventEmitter<number>()
   @Output() putEvent = new EventEmitter<Driver>()
 
+  @ViewChild(MatTable) table!: MatTable<any>
+
+  columnsToDisplay = ['id', 'name', 'phone', 'email', 'location', 'tasks', 'actions'];
+
+
   ngOnChanges(): void {
-    const first = this.drivers[0]
-    this.titles = Object.keys(first)
+    const firstDriver = this.drivers[0]
+    this.titles = Object.keys(firstDriver)
   }
 
   onSelectDriver(id:number) {
+    console.log(id)
     this.selectEvent.emit(id)
   }
 

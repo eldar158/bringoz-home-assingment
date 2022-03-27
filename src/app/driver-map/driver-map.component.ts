@@ -14,7 +14,6 @@ export class DriverMapComponent implements OnChanges {
   @Input() lng:number = 0
   @Input() zoom = 9
 
-  // taskMarker = './assets/images/taskMarker.png'
   taskMarker = {
     url: './assets/images/taskMarker.png',
     scaledSize: {

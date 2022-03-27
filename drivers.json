@@ -136,25 +136,6 @@
           }
         }
       ]
-    },
-    {
-      "id": 5,
-      "name": "driver2",
-      "email": "driver@gmail.com",
-      "phone": "052-8888888",
-      "location": {
-        "lat": 0,
-        "lng": 0
-      },
-      "tasks": [
-        {
-          "id": "0",
-          "location": {
-            "lat": 0,
-            "lng": 0
-          }
-        }
-      ]
     }
   ]
 }

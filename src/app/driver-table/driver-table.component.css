@@ -1,12 +1,11 @@
 table {
-  width: 90%;
   margin: 10px auto 0px;
+  width: 90%;
 }
 
-td,th {
-  border: 1px solid black;
-  border-radius: 4px;
-  text-align: center;
+td, th {
+  text-align: center !important;
+  vertical-align: middle !important;
 }
 
 button {

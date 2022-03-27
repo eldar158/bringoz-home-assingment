@@ -1,10 +1,11 @@
 div {
   width: 90%;
-  margin: 10px auto 0px;
+  margin: 20px auto 0px;
 
   border: 1px solid black;
 }
 
 div agm-map {
-  height: 500px;
+  height: 250px;
+  margin: 0px auto;
 }

@@ -29,6 +29,11 @@ export class AppComponent implements OnInit {
 
   onPostEvent(newDriver:Driver) {
     this.drivers.push(newDriver)
+
+    //* onChange event does not fire in driver-table on post driver.
+    //* as a fix, during post the drivers array are being copied to a new array, and that fire the event
+    const newDrivers = JSON.parse(JSON.stringify(this.drivers))
+    this.drivers = newDrivers
   }
 
   onPutEvent(editedDriver:Driver) {
