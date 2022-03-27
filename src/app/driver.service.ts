@@ -22,7 +22,7 @@ export class DriverService {
   }
 
   putDriver(driver:Driver):Observable<Driver> {
-    return this.http.post<Driver>(BACKEND_URL + '/drivers', driver)
+    return this.http.put<Driver>(BACKEND_URL + '/drivers/' + driver.id, driver)
   }
 
   deleteDriver(id:number):Observable<Driver> {

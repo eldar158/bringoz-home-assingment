@@ -26,6 +26,13 @@ export class AppComponent implements OnInit {
     this.drivers.push(newDriver)
   }
 
+  onPutEvent(editedDriver:Driver) {
+    this.drivers = this.drivers.map((driver) => {
+      if (driver.id === editedDriver.id) return editedDriver
+      return driver
+    })
+  }
+
   onDeleteEvent(deletedDriverId:number) {
     this.drivers = this.drivers.filter(driver =>driver.id != deletedDriverId)
   }

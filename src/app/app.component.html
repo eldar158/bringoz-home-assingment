@@ -5,6 +5,7 @@
 <div *ngIf="drivers.length != 0" >
   <app-driver-table
     [drivers]="drivers"
+    (putEvent)="onPutEvent($event)"
     (deleteEvent)="onDeleteEvent($event)"
   ></app-driver-table>
 

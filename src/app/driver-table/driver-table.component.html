@@ -9,15 +9,15 @@
     <tr *ngFor="let driver of drivers">
       <td>{{driver.id}}</td>
       <td>{{driver.name}}</td>
-      <td>{{driver.email}}</td>
       <td>{{driver.phone}}</td>
+      <td>{{driver.email}}</td>
       <td>
         <div>{{driver.location.lat}}</div>
         <div>{{driver.location.lng}}</div>
       </td>
       <td>{{driver.tasks.length}}</td>
       <td>
-        <button class="edit-button">
+        <button class="edit-button" (click)="onPutDriver(driver)">
           edit
         </button>
         <button class="delete-button" (click)="onDeleteDriver(driver.name, driver.id)">
