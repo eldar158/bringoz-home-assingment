@@ -11,11 +11,15 @@ import { DriverTableComponent } from './driver-table/driver-table.component';
 import { DriverMapComponent } from './driver-map/driver-map.component';
 import { AddDriverButtonComponent } from './post-driver-button/post-driver-button.component';
 
+import { MaterialModule } from './material.module';
+
+
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    MaterialModule,
     AgmCoreModule.forRoot({
       apiKey: environment.apiKey
     })
