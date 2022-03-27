@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";;
-
-import { environment } from 'src/environments/environment'
+import { Observable } from 'rxjs';
 
 import { Driver } from './models/Driver.model';
-import { catchError, Observable } from 'rxjs';
+
+const BACKEND_URL = 'http://localhost:3000'
 
 
 @Injectable({
@@ -14,19 +14,18 @@ export class DriverService {
   constructor(private http: HttpClient) {}
 
   getDrivers():Observable<Driver[]> {
-    return this.http.get<Driver[]>(environment.BACKEND_URL + '/drivers')
+    return this.http.get<Driver[]>(BACKEND_URL + '/drivers')
   }
 
-  postDriver(driver:Driver): Observable<Driver> {
-    return this.http.post<Driver>(environment.BACKEND_URL + '/drivers', driver)
+  postDriver(driver:Driver):Observable<Driver> {
+    return this.http.post<Driver>(BACKEND_URL + '/drivers', driver)
   }
 
   putDriver(driver:Driver):Observable<Driver> {
-    return this.http.post<Driver>(environment.BACKEND_URL + '/drivers', driver)
-    //todo how to tell him which one? using name probably. look at json-server docs
+    return this.http.post<Driver>(BACKEND_URL + '/drivers', driver)
   }
 
   deleteDriver(id:number):Observable<Driver> {
-    return this.http.delete<Driver>(environment.BACKEND_URL + '/drivers/' + id)
+    return this.http.delete<Driver>(BACKEND_URL + '/drivers/' + id)
   }
 }
