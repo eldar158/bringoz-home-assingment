@@ -28,8 +28,8 @@ export class DriverDialogComponent {
   }
 
   ngOnInit() {
-    const phoneRegex = new RegExp()
-    const emailRegex = new RegExp()
+    const phoneRegex = new RegExp("\\d{1}-\\d{3}-\\d{3}-\\d{4}")
+    const emailRegex = new RegExp("^[^@\s]+@[^@\s]+\.[^@\s]+$")
     this.myForm = this.fb.group({
       name: [this.localData.name, Validators.required],
       phone: [this.localData.phone, [Validators.required, Validators.pattern(phoneRegex)]],
