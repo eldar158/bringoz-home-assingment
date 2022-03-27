@@ -5,11 +5,14 @@
 <div *ngIf="drivers.length != 0" >
   <app-driver-table
     [drivers]="drivers"
+    [selectedDriverId]="selectedDriverId"
+    (selectEvent)="onSelectEvent($event)"
     (putEvent)="onPutEvent($event)"
     (deleteEvent)="onDeleteEvent($event)"
   ></app-driver-table>
 
   <app-driver-map
-    [drivers]="drivers">
-  </app-driver-map>
+    [drivers]="drivers"
+    [selectedDriverId]="selectedDriverId"
+  ></app-driver-map>
 </div>

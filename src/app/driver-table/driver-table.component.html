@@ -6,7 +6,7 @@
       </th>
       <th>actions</th>
     </tr>
-    <tr *ngFor="let driver of drivers">
+    <tr *ngFor="let driver of drivers" (click)="onSelectDriver(driver.id)" [class.selected] = "driver.id === selectedDriverId">
       <td>{{driver.id}}</td>
       <td>{{driver.name}}</td>
       <td>{{driver.phone}}</td>
@@ -17,10 +17,10 @@
       </td>
       <td>{{driver.tasks.length}}</td>
       <td>
-        <button mat-raised-button color="basic" (click)="onPutDriver(driver)">
+        <button mat-raised-button color="basic" (click)="onPutDriver($event, driver)">
           edit
         </button>
-        <button mat-raised-button color="accent" (click)="onDeleteDriver(driver.name, driver.id)">
+        <button mat-raised-button color="accent" (click)="onDeleteDriver($event, driver.name, driver.id)">
           delete
         </button>
       </td>

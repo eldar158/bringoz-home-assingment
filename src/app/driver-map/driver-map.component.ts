@@ -11,6 +11,7 @@ export class DriverMapComponent implements OnChanges {
   constructor() { }
 
   @Input() drivers:Driver[] = []
+  @Input() selectedDriverId:number = -1
   @Input() lat:number = 0
   @Input() lng:number = 0
   @Input() zoom = 9

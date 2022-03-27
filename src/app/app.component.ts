@@ -12,6 +12,7 @@ import { DriverService } from './driver.service'
 })
 export class AppComponent implements OnInit {
   drivers:Driver[] = []
+  selectedDriverId:number = -1 // -1 means no driver selected
 
   constructor(private driverService: DriverService) {}
 
@@ -20,6 +21,10 @@ export class AppComponent implements OnInit {
       .subscribe((drivers:Driver[]) => {
         this.drivers = drivers
       })
+  }
+
+  onSelectEvent(selectedDriverId:number) {
+    this.selectedDriverId = selectedDriverId
   }
 
   onPostEvent(newDriver:Driver) {
@@ -35,5 +40,6 @@ export class AppComponent implements OnInit {
 
   onDeleteEvent(deletedDriverId:number) {
     this.drivers = this.drivers.filter(driver =>driver.id != deletedDriverId)
+    if (deletedDriverId === this.selectedDriverId) this.selectedDriverId = -1 // remove deleted driver from selection
   }
 }

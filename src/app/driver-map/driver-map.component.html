@@ -1,8 +1,8 @@
 <div>
   <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-    <agm-marker *ngFor="let driver of drivers"
-      [latitude]="driver.location.lat"
-      [longitude]="driver.location.lng"
+    <agm-marker *ngIf="selectedDriverId != -1"
+      [latitude]="drivers[selectedDriverId].location.lat"
+      [longitude]="drivers[selectedDriverId].location.lng"
     ></agm-marker>
   </agm-map>
 </div>

@@ -14,6 +14,7 @@ import { DriverDialogComponent } from '../driver-dialog/driver-dialog.component'
 export class DriverTableComponent implements OnChanges{
 
   @Input() drivers:Driver[] = []
+  @Input() selectedDriverId:number = -1
   titles:string[] = []
 
   constructor(
@@ -21,6 +22,7 @@ export class DriverTableComponent implements OnChanges{
     private dialog:MatDialog
   ) { }
 
+  @Output() selectEvent = new EventEmitter<number>()
   @Output() deleteEvent = new EventEmitter<number>()
   @Output() putEvent = new EventEmitter<Driver>()
 
@@ -29,7 +31,12 @@ export class DriverTableComponent implements OnChanges{
     this.titles = Object.keys(first)
   }
 
-  onPutDriver(driver:Driver) {
+  onSelectDriver(id:number) {
+    this.selectEvent.emit(id)
+  }
+
+  onPutDriver(event:Event, driver:Driver) {
+    event.stopPropagation()
     this.dialog.open(DriverDialogComponent, {data: driver}).afterClosed().subscribe((result) => {
       if (!result) return
 
@@ -46,7 +53,8 @@ export class DriverTableComponent implements OnChanges{
     })
   }
 
-  onDeleteDriver(name:string, id:number) {
+  onDeleteDriver(event:Event, name:string, id:number) {
+    event.stopPropagation()
     if (confirm(`Are you sure you want to delete driver "${name}" ?`)) {
       this.driverService
         .deleteDriver(id)
