@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 import { DriverService } from '../driver.service';
 import { Driver } from '../models/Driver.model';
@@ -13,22 +13,19 @@ export class AddDriverButtonComponent {
 
   constructor(private driverService:DriverService) { }
 
+  @Input() drivers:Driver[] = []
   @Output() postEvent = new EventEmitter<Driver>()
 
   onPostDriver() {
-    //todo generate from form
+    const high:number = highestId(this.drivers)
+
     const tmpDriver:Driver = {
-      id: 5,
-      name: 'driver2',
-      email: 'driver@gmail.com',
-      phone: '052-8888888',
+      id: high + 1, //each new driver get id bigger than the biggest id on the list so it would be uniqe
+      name: 'newDriver',
+      email: 'driver@emailProvider.com',
+      phone: '050-1234567',
       location: {lat: 0, lng: 0},
-      tasks: [
-        {
-          id: "0",
-          location: {lat: 0, lng: 0}
-        }
-      ]
+      tasks: []
     }
 
     this.driverService
@@ -37,5 +34,12 @@ export class AddDriverButtonComponent {
         this.postEvent.emit(driver)
       })
   }
+}
 
+function highestId(drivers:Driver[]):number {
+  var high:number = 0
+  for (let i = 0; i < drivers.length; i++) {
+    high = Math.max(high, drivers[i].id)
+  }
+  return high
 }

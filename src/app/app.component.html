@@ -1,6 +1,6 @@
 <h1 class="title">d r i v e r z</h1>
 
-<app-post-driver-button (postEvent)="onPostEvent($event)"></app-post-driver-button>
+<app-post-driver-button [drivers]="drivers" (postEvent)="onPostEvent($event)"></app-post-driver-button>
 
 <div *ngIf="drivers.length != 0" >
   <app-driver-table
