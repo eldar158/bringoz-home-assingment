@@ -1,6 +1,18 @@
-<h1>driver data</h1>
-
+<h1 mat-dialog-title>driver data</h1>
+<br>
+<mat-form-field>
+  <input matInput placeholder="name">
+</mat-form-field>
+<br>
+<mat-form-field>
+  <input matInput placeholder="phone">
+</mat-form-field>
+<br>
+<mat-form-field>
+  <input matInput placeholder="email">
+</mat-form-field>
+<br>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>done</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Done</button>
 </mat-dialog-actions>

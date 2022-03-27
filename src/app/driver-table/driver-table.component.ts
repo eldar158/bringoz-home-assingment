@@ -30,19 +30,20 @@ export class DriverTableComponent implements OnChanges{
   }
 
   onPutDriver(driver:Driver) {
-    this.dialog.open(DriverDialogComponent)
+    this.dialog.open(DriverDialogComponent, {data: driver}).afterClosed().subscribe((result) => {
+      if (!result) return
 
-    const editedDriver = JSON.parse(JSON.stringify(driver))
+      const editedDriver = JSON.parse(JSON.stringify(driver))
+      editedDriver.name = 'name'
+      editedDriver.phone = '050-1234567'
+      editedDriver.email = 'email@provider.com'
 
-    editedDriver.name = 'name'
-    editedDriver.phone = '050-1234567'
-    editedDriver.email = 'email@provider.com'
-
-    this.driverService
-      .putDriver(editedDriver)
-      .subscribe((driver:Driver) => {
-        this.putEvent.emit(driver)
-      })
+      this.driverService
+        .putDriver(editedDriver)
+        .subscribe((driver:Driver) => {
+          this.putEvent.emit(driver)
+        })
+    })
   }
 
   onDeleteDriver(name:string, id:number) {

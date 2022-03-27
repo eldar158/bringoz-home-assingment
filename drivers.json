@@ -113,9 +113,9 @@
     },
     {
       "id": 4,
-      "name": "Daniel Taylor",
-      "phone": "1-541-754-0004",
-      "email": "daniel@bringoz.com",
+      "name": "name",
+      "phone": "050-1234567",
+      "email": "email@provider.com",
       "location": {
         "lat": 34.186814,
         "lng": -118.279903
