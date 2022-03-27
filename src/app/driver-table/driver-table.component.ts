@@ -16,7 +16,7 @@ import { DriverDialogComponent } from '../driver-dialog/driver-dialog.component'
 export class DriverTableComponent implements OnChanges{
 
   @Input() drivers:Driver[] = []
-  @Input() selectedDriverId:number = -1
+  @Input() selectedDriverId:number = 0
   titles:string[] = []
 
   constructor(
@@ -39,7 +39,6 @@ export class DriverTableComponent implements OnChanges{
   }
 
   onSelectDriver(id:number) {
-    console.log(id)
     this.selectEvent.emit(id)
   }
 

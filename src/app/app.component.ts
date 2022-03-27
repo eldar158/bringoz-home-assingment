@@ -12,7 +12,7 @@ import { DriverService } from './driver.service'
 })
 export class AppComponent implements OnInit {
   drivers:Driver[] = []
-  selectedDriverId:number = -1 // -1 means no driver selected
+  selectedDriverId:number = 0 // first driver is selected (0). -1 means no driver selected
 
   constructor(private driverService: DriverService) {}
 

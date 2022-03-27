@@ -9,7 +9,7 @@ import { Driver } from '../models/Driver.model';
 export class DriverMapComponent implements OnChanges {
 
   @Input() drivers:Driver[] = []
-  @Input() selectedDriverId:number = -1
+  @Input() selectedDriverId:number = 0
   @Input() lat:number = 0
   @Input() lng:number = 0
   @Input() zoom = 9

@@ -1,5 +1,5 @@
 div {
-  width: 90%;
+  width: 60%;
   margin: 20px auto 0px;
 
   border: 1px solid black;
@@ -7,5 +7,5 @@ div {
 
 div agm-map {
   height: 250px;
-  margin: 0px auto;
+  margin: 0px auto 0px;
 }
