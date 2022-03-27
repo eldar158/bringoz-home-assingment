@@ -1,20 +1,20 @@
-<h1 mat-dialog-title>driver data</h1>
+<h1 mat-dialog-title>edit driver</h1>
 
 <br>
 <mat-form-field>
-  <input matInput placeholder="name">
+  <input matInput placeholder="name" [(ngModel)]="localData.name">
 </mat-form-field>
 <br>
 <mat-form-field>
-  <input matInput placeholder="phone">
+  <input matInput placeholder="phone" [(ngModel)]="localData.phone">
 </mat-form-field>
 <br>
 <mat-form-field>
-  <input matInput placeholder="email">
+  <input matInput placeholder="email" [(ngModel)]="localData.email">
 </mat-form-field>
 <br>
 
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Done</button>
-</mat-dialog-actions>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="doAction()">Done</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>

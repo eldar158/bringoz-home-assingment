@@ -1,11 +1,11 @@
-export interface UsersData {
+import { Component, Inject, Optional } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+export interface DriverData {
   name: string;
   phone: string;
   email: string;
 }
-
-
-import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-driver-dialog',
@@ -13,25 +13,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./driver-dialog.component.css']
 })
 export class DriverDialogComponent {
+  localData:any;
 
-  // action:string;
-  // local_data:any;
+  constructor(
+    public dialogRef: MatDialogRef<DriverDialogComponent>,
+    //@Optional() is used to prevent error if no data is passed
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: DriverData) {
+    this.localData = {...data};
+  }
 
-  // constructor(
-  //   public dialogRef: MatDialogRef<DialogBoxComponent>,
-  //   //@Optional() is used to prevent error if no data is passed
-  //   @Optional() @Inject(MAT_DIALOG_DATA) public data: UsersData) {
-  //   console.log(data);
-  //   this.local_data = {...data};
-  //   this.action = this.local_data.action;
-  // }
+  doAction(){
+    this.dialogRef.close({data:this.localData});
+  }
 
-  // doAction(){
-  //   this.dialogRef.close({event:this.action,data:this.local_data});
-  // }
-
-  // closeDialog(){
-  //   this.dialogRef.close({event:'Cancel'});
-  // }
-
+  closeDialog(){
+    this.dialogRef.close({event:'Cancel'});
+  }
 }

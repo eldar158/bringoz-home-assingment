@@ -45,12 +45,13 @@ export class DriverTableComponent implements OnChanges{
   onPutDriver(event:Event, driver:Driver) {
     event.stopPropagation()
     this.dialog.open(DriverDialogComponent, {data: driver}).afterClosed().subscribe((result) => {
-      if (!result) return
+
+      if ( !result.data ) return // return if submittion was canceled
 
       const editedDriver = JSON.parse(JSON.stringify(driver))
-      editedDriver.name = 'name'
-      editedDriver.phone = '050-1234567'
-      editedDriver.email = 'email@provider.com'
+      editedDriver.name = result.data.name
+      editedDriver.phone = result.data.phone
+      editedDriver.email = result.data.email
 
       this.driverService
         .putDriver(editedDriver)

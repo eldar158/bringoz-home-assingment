@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AgmCoreModule } from '@agm/core'
 
@@ -10,8 +11,6 @@ import { environment } from 'src/environments/environment';
 import { DriverTableComponent } from './driver-table/driver-table.component';
 import { DriverMapComponent } from './driver-map/driver-map.component';
 import { AddDriverButtonComponent } from './post-driver-button/post-driver-button.component';
-
-import { NoopAnimationPlayer } from '@angular/animations';
 
 import { MaterialModule } from './material.module';
 import { DriverDialogComponent } from './driver-dialog/driver-dialog.component';
@@ -24,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     AppRoutingModule,
     MaterialModule,
+    FormsModule,
     AgmCoreModule.forRoot({
       apiKey: environment.apiKey
     }),
@@ -35,7 +35,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DriverTableComponent,
     DriverMapComponent,
     AddDriverButtonComponent,
-    DriverDialogComponent
+    DriverDialogComponent,
   ],
   bootstrap: [AppComponent]
 })
