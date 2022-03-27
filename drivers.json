@@ -2,9 +2,9 @@
   "drivers": [
     {
       "id": 0,
-      "name": "James Smith",
-      "phone": "1-541-754-0000",
-      "email": "james@bringoz.com",
+      "name": "name",
+      "phone": "050-1234567",
+      "email": "email@provider.com",
       "location": {
         "lat": 33.96842,
         "lng": -118.222225

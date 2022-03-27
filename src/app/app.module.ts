@@ -11,7 +11,11 @@ import { DriverTableComponent } from './driver-table/driver-table.component';
 import { DriverMapComponent } from './driver-map/driver-map.component';
 import { AddDriverButtonComponent } from './post-driver-button/post-driver-button.component';
 
+import { NoopAnimationPlayer } from '@angular/animations';
+
 import { MaterialModule } from './material.module';
+import { DriverDialogComponent } from './driver-dialog/driver-dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -22,14 +26,16 @@ import { MaterialModule } from './material.module';
     MaterialModule,
     AgmCoreModule.forRoot({
       apiKey: environment.apiKey
-    })
+    }),
+    BrowserAnimationsModule
   ],
   providers: [],
   declarations: [
     AppComponent,
     DriverTableComponent,
     DriverMapComponent,
-    AddDriverButtonComponent
+    AddDriverButtonComponent,
+    DriverDialogComponent
   ],
   bootstrap: [AppComponent]
 })

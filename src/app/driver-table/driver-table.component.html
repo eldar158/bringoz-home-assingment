@@ -17,10 +17,10 @@
       </td>
       <td>{{driver.tasks.length}}</td>
       <td>
-        <button class="edit-button" (click)="onPutDriver(driver)">
+        <button mat-raised-button color="basic" (click)="onPutDriver(driver)">
           edit
         </button>
-        <button class="delete-button" (click)="onDeleteDriver(driver.name, driver.id)">
+        <button mat-raised-button color="accent" (click)="onDeleteDriver(driver.name, driver.id)">
           delete
         </button>
       </td>

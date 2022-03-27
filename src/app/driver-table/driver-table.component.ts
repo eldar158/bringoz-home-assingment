@@ -3,6 +3,9 @@ import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core
 import { Driver } from '../models/Driver.model';
 import { DriverService } from '../driver.service';
 
+import { MatDialog } from '@angular/material/dialog'
+import { DriverDialogComponent } from '../driver-dialog/driver-dialog.component'
+
 @Component({
   selector: 'app-driver-table',
   templateUrl: './driver-table.component.html',
@@ -13,7 +16,10 @@ export class DriverTableComponent implements OnChanges{
   @Input() drivers:Driver[] = []
   titles:string[] = []
 
-  constructor(private driverService:DriverService) { }
+  constructor(
+    private driverService:DriverService,
+    private dialog:MatDialog
+  ) { }
 
   @Output() deleteEvent = new EventEmitter<number>()
   @Output() putEvent = new EventEmitter<Driver>()
@@ -24,8 +30,7 @@ export class DriverTableComponent implements OnChanges{
   }
 
   onPutDriver(driver:Driver) {
-    //todo open popup form and when done return the inputed:
-    //use service with the new fields
+    this.dialog.open(DriverDialogComponent)
 
     const editedDriver = JSON.parse(JSON.stringify(driver))
 
