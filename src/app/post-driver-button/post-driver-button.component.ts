@@ -23,7 +23,7 @@ export class AddDriverButtonComponent {
       id: high + 1, //each new driver get id bigger than the biggest id on the list so it would be uniqe
       name: 'newDriver',
       email: 'driver@emailProvider.com',
-      phone: '050-1234567',
+      phone: '0-123-456-7890',
       location: {lat: 0, lng: 0},
       tasks: []
     }
