@@ -1,6 +1,6 @@
 import { Location } from './Location.model'
 
 export interface Task {
-  id: String,
+  title: String,
   location: Location,
 }

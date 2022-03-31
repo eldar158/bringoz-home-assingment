@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Driver } from './models/Driver.model'
-import { Observable } from 'rxjs';
-
 import { DriverService } from './driver.service'
 
 @Component({
@@ -28,11 +26,8 @@ export class AppComponent implements OnInit {
   }
 
   onPostEvent(newDriver:Driver) {
-    this.drivers.push(newDriver)
-
-    //* onChange event does not fire in driver-table on post driver.
-    //* as a fix, during post the drivers array are being copied to a new array, and that fire the event
     const newDrivers = JSON.parse(JSON.stringify(this.drivers))
+    newDrivers.push(newDriver)
     this.drivers = newDrivers
   }
 
@@ -45,6 +40,8 @@ export class AppComponent implements OnInit {
 
   onDeleteEvent(deletedDriverId:number) {
     this.drivers = this.drivers.filter(driver =>driver.id != deletedDriverId)
-    if (deletedDriverId === this.selectedDriverId) this.selectedDriverId = -1 // remove deleted driver from selection
+    if (deletedDriverId === this.selectedDriverId) {
+      this.selectedDriverId = -1  // removes from selection
+    }
   }
 }

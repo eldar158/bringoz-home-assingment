@@ -1,17 +1,25 @@
 <form [formGroup]="myForm">
-  <h1 mat-dialog-title>edit driver</h1>
+  <h1 mat-dialog-title>{{ formAction }} driver</h1>
   <br>
 
   <mat-form-field>
-    <input formControlName="name" matInput placeholder="name" [(ngModel)]="localData.name">
+    <input matInput formControlName="name" placeholder="name" [(ngModel)]="localData.name">
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input formControlName="phone" matInput placeholder="phone" [(ngModel)]="localData.phone">
+    <input matInput formControlName="phone" placeholder="phone" [(ngModel)]="localData.phone">
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input formControlName="email" matInput placeholder="email" [(ngModel)]="localData.email">
+    <input matInput formControlName="email" placeholder="email" [(ngModel)]="localData.email">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput formControlName="lat" placeholder="latitude" [(ngModel)]="localData.location.lat">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput formControlName="lng" placeholder="longitude" [(ngModel)]="localData.location.lng">
   </mat-form-field>
   <br>
 

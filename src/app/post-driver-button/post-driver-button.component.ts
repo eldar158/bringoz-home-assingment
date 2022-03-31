@@ -1,7 +1,10 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog'
 
 import { DriverService } from '../driver.service';
 import { Driver } from '../models/Driver.model';
+
+import { DriverDialogComponent } from '../driver-dialog/driver-dialog.component'
 
 
 @Component({
@@ -11,35 +14,30 @@ import { Driver } from '../models/Driver.model';
 })
 export class AddDriverButtonComponent {
 
-  constructor(private driverService:DriverService) { }
+  constructor(
+    private driverService:DriverService,
+    private dialog:MatDialog
+  ) { }
 
   @Input() drivers:Driver[] = []
   @Output() postEvent = new EventEmitter<Driver>()
 
   onPostDriver() {
-    const high:number = highestId(this.drivers)
+    const newDriverId:number = highestId(this.drivers) + 1 // using simple incremented id's
 
-    const tmpDriver:Driver = {
-      id: high + 1, //each new driver get id bigger than the biggest id on the list so it would be uniqe
-      name: 'newDriver',
-      email: 'driver@emailProvider.com',
-      phone: '0-123-456-7890',
-      location: {lat: 0, lng: 0},
-      tasks: []
-    }
+    this.dialog.open(DriverDialogComponent, {data: {newDriverId:newDriverId}}).afterClosed().subscribe((result) => {
+      if ( !result.data ) return // on cancel
 
-    this.driverService
-      .postDriver(tmpDriver)
+      this.driverService
+      .postDriver(result.data)
       .subscribe((driver:Driver) => {
         this.postEvent.emit(driver)
       })
+    })
   }
 }
 
 function highestId(drivers:Driver[]):number {
-  var high:number = 0
-  for (let i = 0; i < drivers.length; i++) {
-    high = Math.max(high, drivers[i].id)
-  }
-  return high
+  const ids = drivers.map(driver => driver.id)
+  return Math.max.apply(null, ids)
 }

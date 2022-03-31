@@ -9,3 +9,14 @@ export interface Driver {
   location: Location,
   tasks: Task[],
 }
+
+export function defaultDriver(id:number): Driver {
+  return {
+    id: id,
+    name: '',
+    email: '',
+    phone: '0-000-000-0000',
+    location: {lat: 0, lng: 0},
+    tasks: []
+  }
+}

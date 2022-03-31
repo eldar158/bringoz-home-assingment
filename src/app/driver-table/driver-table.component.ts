@@ -44,17 +44,12 @@ export class DriverTableComponent implements OnChanges{
 
   onPutDriver(event:Event, driver:Driver) {
     event.stopPropagation()
-    this.dialog.open(DriverDialogComponent, {data: driver}).afterClosed().subscribe((result) => {
 
-      if ( !result.data ) return // return if submittion was canceled
-
-      const editedDriver = JSON.parse(JSON.stringify(driver))
-      editedDriver.name = result.data.name
-      editedDriver.phone = result.data.phone
-      editedDriver.email = result.data.email
+    this.dialog.open(DriverDialogComponent, {data: {driver:driver}}).afterClosed().subscribe((result) => {
+      if ( !result.data ) return // on cancel
 
       this.driverService
-        .putDriver(editedDriver)
+        .putDriver(result.data)
         .subscribe((driver:Driver) => {
           this.putEvent.emit(driver)
         })
@@ -63,7 +58,7 @@ export class DriverTableComponent implements OnChanges{
 
   onDeleteDriver(event:Event, name:string, id:number) {
     event.stopPropagation()
-    if (confirm(`Are you sure you want to delete driver "${name}" ?`)) {
+    if (confirm(`Are you sure you want to delete the driver "${name}" ?`)) {
       this.driverService
         .deleteDriver(id)
         .subscribe((driver:Driver) => {

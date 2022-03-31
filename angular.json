@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bringoz-home-assingment": {
+    "drivers": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/bringoz-home-assingment",
+            "outputPath": "dist/drivers",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "bringoz-home-assingment:build:production"
+              "browserTarget": "drivers:build:production"
             },
             "development": {
-              "browserTarget": "bringoz-home-assingment:build:development"
+              "browserTarget": "drivers:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bringoz-home-assingment:build"
+            "browserTarget": "drivers:build"
           }
         },
         "test": {
@@ -107,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "bringoz-home-assingment"
+  "defaultProject": "drivers"
 }
