@@ -1,34 +1,29 @@
-# Driverz - google maps api interaction example
+# Drivers - demonstrating Angular frontend
 
-<!-- todo keep working on me -->
+A React app demonstrating the use of 
+- Angular and angular material
+- Google API
+- REST API backend with CRUD operations
 
-Originally this was a home assignment given to me by an interviewer.
-It Demonstates frontend interactions with:
-  1.  google api
-  2.  RESTful api with CRUD operations
-  3.  material ui
-  4.  working with angular
+## Screenshot
+![main page](https://github.com/eldar158/drivers/blob/main/screenshots/main-page.png?raw=true)
 
-features:
-  1.
-  2.
-  3.
+## Project Setup
 
-## project setup
-
-Install all dependencies with npm
-
+Install all dependencies
 ```
 npm install
 ```
 
-In /scr/environments/environment.ts insert your own google api key
+Insert your own google api key in /scr/environments/environment.ts
+
+(If you plan to commit your changes, add 'environment.ts' and 'environment.prod.ts' to .gitignore)
 
 Run the dev server and the mock backend server using
-
 ```
 npm start
 ```
-
-The frontend will run on port 8080 while the backend will run on port 3000
-
+## Default Ports
+frontend | backend |
+--- | --- |
+8080 | 3000 |

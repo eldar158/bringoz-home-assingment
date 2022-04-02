@@ -1,4 +1,4 @@
-import { Location } from './Location.model';
+import { Location } from './Location.model'
 import { Task } from './Task.model'
 
 export interface Driver {
